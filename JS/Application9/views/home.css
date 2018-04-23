@@ -1,0 +1,11 @@
+﻿/* Put css styles for home view here */
+.home-view p {
+	padding: 5px;
+}
+.mylabel
+{
+    border: 1px solid red;
+    background-color: white;
+    padding: 0px 2px;
+    font-size: 12px;
+}
