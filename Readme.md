@@ -4,7 +4,7 @@
 <!-- default file list end -->
 # dxMap - How to add a marker with a label
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t108722)**
+**[[Run Online]](https://codecentral.devexpress.com/t108722/)**
 <!-- run online end -->
 
 
