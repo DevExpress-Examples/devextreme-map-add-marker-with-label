@@ -6,23 +6,11 @@
 
 # Map for DevExtreme - How to add a marker with a label
 
-This example demonstrates how to add a marker with a label to the Google map. We used the <a href="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/docs/reference.html">MarkerWithLabel</a> class for this task. This class constructor requires the Google map instance. dxMap allows obtaining the instance in the <a href="http://phonejs.devexpress.com/Documentation/ApiReference/Widgets/dxMap/Configuration?version=13_2#readyAction">dxMap.readyAction</a> event handler using the <strong>originalMap</strong> parameter. The <a href="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/docs/examples.html">MarkerWithLabel Examples</a> web page demonstrates how to use the <strong>MarkerWithLabel</strong> class. We can use the same code in the <strong>dxMap.readyAction</strong> event handler. However, we should remember that dxMap loads the map's APIs dynamically and that is why we need to load a file that contains code for the <strong>MarkerWithLabel</strong> class when a map is completely loaded. We used <a href="http://api.jquery.com/jquery.getscript/">jQuery.getScript</a> for this purpose as shown below:
+This example demonstrates how to add a marker with a label to the Google map. We used the <a href="https://github.com/googlemaps/js-markerwithlabel">js-markerwithhlabel</a> library for this task.
 
-```js
-readyAction: function (s) {
-    $.getScript("js/markerwithlabel.js", function () {
-        var map = s.originalMap;
-        var markerSettings = {
-            position: new google.maps.LatLng(40.749825, -73.987963),
-            map: map,
-            labelContent: "Label text",
-            labelAnchor: new google.maps.Point(26, 0),
-            labelClass: "mylabel"
-        };
-        var marker = new MarkerWithLabel(markerSettings);
-    });
-}
-```
+![Markers with labels](./map-marker-with-label.png)
+
+The Map component allows obtaining the instance in the <a href="https://js.devexpress.com/jQuery/Documentation/ApiReference/UI_Components/dxMap/Configuration/#onReady">onReady</a> event handler using the <strong>originalMap</strong> parameter.
 
 ## Files to Review
 
