@@ -15,13 +15,9 @@ The Map component allows obtaining the instance in the <a href="https://js.dev
 
 ## Files to Review
 
-## Files to Review
-
 - **jQuery**
     - [index.html](jQuery/src/index.html)
     - [index.js](jQuery/src/index.js)
-    - [index.css](jQuery/src/index.css)
-    - [markerWithLabel.js](jQuery/src/markerWithLabel.js)
 
 ## Documentation
 

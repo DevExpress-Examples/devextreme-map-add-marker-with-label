@@ -1,35 +1,52 @@
-$(() => {
-  $('#map').dxMap({
-    apiKey: 'YOUR_API_KEY',
+function initMap() {
+  const map = $('#map').dxMap({
+    center: '49.47805, -123.84716',
+    zoom: 14,
     width: 1200,
     height: 620,
-    zoom: 14,
-    center: '49.47805, -123.84716',
     provider: 'google',
+    apiKey: {
+      google: 'YOUR_API_KEY',
+    },
+    providerConfig: {
+      mapId: 'DEMO_MAP_ID',
+    },
     onReady(s) {
-      const map = s.originalMap;
-      const homeLatLng = new google.maps.LatLng(49.47805, -123.84716);
+      const googleMap = s.originalMap;
 
-      const marker1 = new MarkerWithLabel({
-        position: homeLatLng,
-        draggable: false,
-        clickable: false,
-        map,
-        labelContent: '$425K',
-        labelAnchor: new google.maps.Point(-21, 3),
-        labelClass: 'labels', // the CSS class for the label
-        labelStyle: { opacity: 0.75 },
+      const createMarkerContent = (price, opacity = 1) => {
+        const content = document.createElement('div');
+        content.className = 'labels';
+        content.textContent = price;
+        content.style.opacity = opacity;
+        return content;
+      };
+
+      const marker1 = new google.maps.marker.AdvancedMarkerElement({
+        map: googleMap,
+        position: { lat: 49.47805, lng: -123.84716 },
+        content: createMarkerContent('$425K', 0.75),
+        // eslint-disable-next-line spellcheck/spell-checker
+        gmpDraggable: false,
+        // eslint-disable-next-line spellcheck/spell-checker
+        gmpClickable: false,
       });
 
-      const marker2 = new MarkerWithLabel({
-        position: new google.maps.LatLng(49.475, -123.84),
-        draggable: true,
-        map,
-        labelContent: '$395K',
-        labelAnchor: new google.maps.Point(-21, 3),
-        labelClass: 'labels', // the CSS class for the label
-        labelStyle: { opacity: 1.0 },
+      const marker2 = new google.maps.marker.AdvancedMarkerElement({
+        map: googleMap,
+        position: { lat: 49.475, lng: -123.84 },
+        content: createMarkerContent('$395K', 1.0),
+        // eslint-disable-next-line spellcheck/spell-checker
+        gmpDraggable: true,
       });
     },
-  });
+  }).dxMap('instance');
+}
+
+window.initMap = initMap;
+
+$(() => {
+  if (window.google && window.google.maps) {
+    initMap();
+  }
 });
