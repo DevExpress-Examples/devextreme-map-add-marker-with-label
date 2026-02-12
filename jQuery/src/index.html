@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Getting Started with DevExtreme jQuery Map</title>
+    <title>DevExtreme jQuery app</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -10,11 +10,12 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/devextreme-dist/js/dx.all.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIw1-l1otL9v1bY-OR4p9w21l1VLu9L2k&loading=async&libraries=marker&callback=initMap" async defer></script>
+    <script type="module" src="index.js"></script>
   </head>
 
   <body class="dx-viewport">
-    <div id="map"></div>
+    <div class="demo-container">
+      <div id="btn"></div>
+    </div>
   </body>
 </html>
